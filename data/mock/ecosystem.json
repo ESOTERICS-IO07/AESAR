@@ -1,0 +1,8 @@
+{
+  "station_id": 3,
+  "timestamp_ms": 1690000010000,
+  "pdr": 1.0,
+  "amri": 0.68,
+  "risk": "HIGH",
+  "recommendation": "TARGETED_BIOCONTROL"
+}

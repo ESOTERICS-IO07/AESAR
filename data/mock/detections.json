@@ -1,0 +1,19 @@
+{
+  "station_id": 3,
+  "timestamp_ms": 1690000005000,
+  "view": "upper",
+  "detections": [
+    {
+      "class": "aphid",
+      "category": "pest",
+      "confidence": 0.91,
+      "bounding_box": [100, 150, 40, 40]
+    },
+    {
+      "class": "ladybug",
+      "category": "defender",
+      "confidence": 0.88,
+      "bounding_box": [200, 220, 50, 50]
+    }
+  ]
+}

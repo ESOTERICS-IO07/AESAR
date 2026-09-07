@@ -1,0 +1,7 @@
+{
+  "mission_id": "M-2026-09-07-A",
+  "state": "GO_TO_STATION",
+  "current_station_id": 4,
+  "total_stations": 10,
+  "progress_pct": 30.0
+}

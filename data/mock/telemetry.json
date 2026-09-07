@@ -1,0 +1,20 @@
+{
+  "type": "sensor_telemetry",
+  "timestamp_ms": 1690000000000,
+  "seq": 1024,
+  "ultrasonic": {
+    "front_mm": 420,
+    "front_left_mm": 380,
+    "front_right_mm": 450,
+    "left_mm": 600,
+    "right_mm": 550
+  },
+  "tof": {
+    "angle_deg": 90,
+    "distance_mm": 830
+  },
+  "imu": {
+    "yaw_deg": 42.5,
+    "gyro_z_rads": 0.12
+  }
+}
