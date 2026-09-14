@@ -1,0 +1,86 @@
+robot:
+  wheel_diameter_m: TBD
+  track_width_m: TBD
+  footprint_length_m: TBD
+  footprint_width_m: TBD
+
+sensors:
+  ultrasonic:
+    count: 5
+    names:
+      - us_fc
+      - us_fl
+      - us_fr
+      - us_l
+      - us_r
+    max_range_mm: TBD
+    update_hz: TBD
+
+  tof_front:
+    enabled: true
+    model: TBD
+    max_range_mm: TBD
+    update_hz: TBD
+
+  imu:
+    enabled: false
+    model: TBD
+    update_hz: TBD
+
+  encoders:
+    enabled: false
+    ticks_per_rev: TBD
+
+power:
+  battery_nominal_v: TBD
+  logic_voltage_v: TBD
+
+safety:
+  command_timeout_ms: TBD
+  max_linear_mps: TBD
+  max_angular_rads: TBD
+  minimum_obstacle_distance_mm: TBD
+
+aesar:
+  mode: "DEMO"  # "LIVE" or "DEMO"
+
+environmental:
+  enabled: true
+  stale_timeout_s: 5.0
+  dht22:
+    pin: null  # Configured by hardware team
+    temp_min_c: -40.0
+    temp_max_c: 80.0
+    humidity_min_pct: 0.0
+    humidity_max_pct: 100.0
+  soil_moisture:
+    pin: null  # Configured by hardware team (ADC1)
+    raw_dry: 3200
+    raw_wet: 1400
+    invert: true
+    min_valid_raw: 100
+    max_valid_raw: 4095
+
+camera:
+  enabled: true
+  provider: "local"  # "local" (laptop webcam), "http" (phone IP Webcam), or "simulated"
+  local_camera_index: 0
+  stream_url: ""
+  snapshot_url: ""
+  analysis_interval_seconds: 0
+  timeout_seconds: 3.0
+  max_retries: 2
+
+vision:
+  provider: "mock"  # "mock", "yolo", or "remote"
+  remote_url: "http://localhost:8001"
+  yolo_model_path: ""
+  confidence_threshold: 0.25
+  device: "cpu"
+  gemini_model: "gemini-2.5-flash"
+  timeout_seconds: 12.0
+
+storage:
+  database_path: "software/backend/data/aesar_missions.db"
+  images_directory: "software/backend/data/images"
+

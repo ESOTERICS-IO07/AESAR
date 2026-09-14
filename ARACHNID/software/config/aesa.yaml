@@ -1,0 +1,44 @@
+version: "1.0.0"
+disclaimer: "These metrics and recommendations are prototype decision rules pending agricultural field validation."
+
+pdr:
+  epsilon: 0.001
+  weights:
+    pests:
+      aphid: 1.0
+      thrips: 1.0
+      default_pest: 1.0
+    defenders:
+      ladybird: 1.0
+      spider: 1.0
+      default_defender: 1.0
+  thresholds:
+    balanced_max: 2.0
+    moderate_max: 5.0
+
+abiotic_risk:
+  temperature_c:
+    optimal_min: 18.0
+    optimal_max: 30.0
+    stress_min: 15.0
+    stress_max: 35.0
+  humidity_percent:
+    optimal_min: 40.0
+    optimal_max: 70.0
+    stress_min: 30.0
+    stress_max: 85.0
+  soil_moisture_percent:
+    optimal_min: 30.0
+    optimal_max: 60.0
+    stress_min: 20.0
+    stress_max: 75.0
+  weights:
+    temperature: 0.35
+    humidity: 0.30
+    soil_moisture: 0.35
+
+recommendations:
+  balanced: "Natural control appears active. Continue monitoring."
+  moderate: "Continue close monitoring and consider biological/botanical NPM."
+  imbalanced: "Re-survey affected stations and consider targeted non-pesticidal management."
+  unknown: "Insufficient data for a reliable ecosystem assessment. Re-sample this station."

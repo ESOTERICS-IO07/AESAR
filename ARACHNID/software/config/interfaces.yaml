@@ -1,0 +1,60 @@
+version: "1.0.0"
+
+sensor_status:
+  values:
+    - OK
+    - TIMEOUT
+    - OUT_OF_RANGE
+    - DISCONNECTED
+    - INVALID
+
+rover_modes:
+  values:
+    - MANUAL
+    - AUTONOMOUS
+
+command_sources:
+  values:
+    - MANUAL
+    - AUTONOMY
+    - SYSTEM
+
+rover_states:
+  values:
+    - DISCONNECTED
+    - CONNECTING
+    - IDLE
+    - MANUAL
+    - AUTONOMOUS
+    - NAVIGATING
+    - EXPLORING
+    - EMERGENCY_STOP
+    - FAULT
+
+telemetry:
+  ultrasonic:
+    fields:
+      - us_fc_mm
+      - us_fl_mm
+      - us_fr_mm
+      - us_l_mm
+      - us_r_mm
+    unit: mm
+    invalid_value: -1
+
+  tof:
+    field: tof_front_mm
+    unit: mm
+    invalid_value: -1
+
+  imu:
+    acceleration_unit: m/s2
+    angular_velocity_unit: rad/s
+
+  encoders:
+    unit: ticks
+
+  battery:
+    field: battery_percent
+    unit: percent
+    invalid_value: -1

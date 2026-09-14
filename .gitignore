@@ -216,3 +216,8 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+
+# Generated frontend build artifacts
+*.tsbuildinfo
+vite.config.js
+vite.config.d.ts

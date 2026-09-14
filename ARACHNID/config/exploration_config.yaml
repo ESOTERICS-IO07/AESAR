@@ -1,0 +1,15 @@
+# ARACHNID Frontier Exploration Configuration - Person A (Robotics & Autonomy)
+# Software Integration Contract v1.0.0
+
+exploration:
+  algorithm: "frontier_detection"
+  connectivity: 8
+  min_cluster_size: 2
+  max_frontiers_to_publish: 10
+  publish_rate_hz: 2.0
+
+scoring:
+  cluster_size_weight: 2.0
+  distance_offset_m: 0.5
+  status_primary: "SELECTED"
+  status_secondary: "CANDIDATE"

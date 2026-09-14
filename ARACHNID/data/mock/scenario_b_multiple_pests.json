@@ -1,0 +1,21 @@
+{
+  "station_id": 5,
+  "view": "middle",
+  "detections": [
+    {
+      "class": "cotton_aphids",
+      "category": "pest",
+      "confidence": 0.92,
+      "count": 18
+    },
+    {
+      "class": "chilli_thrips",
+      "category": "pest",
+      "confidence": 0.86,
+      "count": 6
+    }
+  ],
+  "status": "success",
+  "error_message": null,
+  "provider": "mock"
+}

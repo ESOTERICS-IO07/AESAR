@@ -1,0 +1,25 @@
+# ARACHNID Navigation & Planning Configuration - Person A (Robotics & Autonomy)
+# Software Integration Contract v1.0.0
+
+navigation:
+  max_linear_speed_mps: 0.35
+  max_angular_speed_rads: 1.05
+  min_linear_speed_mps: 0.05
+  goal_tolerance_m: 0.15
+  lookahead_distance_m: 0.30
+  kp_angular: 2.0
+  control_rate_hz: 20.0
+
+safety:
+  safety_stop_distance_m: 0.18
+  slowdown_distance_m: 0.40
+  watchdog_timeout_s: 0.50
+  emergency_stop_latched: true
+
+planner:
+  algorithm: "A_STAR"
+  connectivity: 8
+  obstacle_inflation_radius_cells: 3
+  step_cost_straight: 1.0
+  step_cost_diagonal: 1.4142
+  unknown_cell_cost_multiplier: 1.2

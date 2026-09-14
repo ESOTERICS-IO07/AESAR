@@ -1,0 +1,168 @@
+version: "1.0.0"
+
+endpoints:
+
+  # ─────────────────────────────
+  # HEALTH
+  # ─────────────────────────────
+  health:
+    method: GET
+    path: /api/health
+    description: "Backend health and ROS2 bridge connectivity status"
+    response:
+      status: "ok"
+      backend: true
+      ros2_connected: true
+
+  # ─────────────────────────────
+  # ROVER STATUS
+  # ─────────────────────────────
+  rover_status:
+    method: GET
+    path: /api/rover/status
+    description: "Current connection state, operating mode, rover state, and battery"
+    response:
+      connected: true
+      state: "AUTONOMOUS"
+      mode: "AUTONOMOUS"
+      battery_percent: 78
+
+  # ─────────────────────────────
+  # TELEMETRY
+  # ─────────────────────────────
+  rover_telemetry:
+    method: GET
+    path: /api/rover/telemetry
+    description: "Latest sensor telemetry readings and individual sensor statuses"
+    response:
+      timestamp_ms: 0
+      seq: 0
+      us_fl_mm: 0
+      us_fr_mm: 0
+      us_l_mm: 0
+      us_r_mm: 0
+      tof_front_mm: 0
+      sensor_status:
+        us_fl: "OK"
+        us_fr: "OK"
+        us_l: "OK"
+        us_r: "OK"
+        tof_front: "OK"
+
+  # ─────────────────────────────
+  # MODE
+  # ─────────────────────────────
+  rover_mode:
+    method: POST
+    path: /api/rover/mode
+    description: "Switch rover operating mode between MANUAL and AUTONOMOUS"
+    request:
+      mode: "AUTONOMOUS"
+    response:
+      success: true
+      mode: "AUTONOMOUS"
+
+  # ─────────────────────────────
+  # VELOCITY COMMAND
+  # ─────────────────────────────
+  rover_command:
+    method: POST
+    path: /api/rover/command
+    description: "Send a velocity motion command"
+    request:
+      command_id: "uuid"
+      timestamp_ms: 0
+      linear_mps: 0.3
+      angular_rads: 0.0
+      source: "MANUAL"
+    response:
+      success: true
+      command_id: "uuid"
+
+  # ─────────────────────────────
+  # NORMAL STOP
+  # ─────────────────────────────
+  rover_stop:
+    method: POST
+    path: /api/rover/stop
+    description: "Standard motion stop command (different from emergency stop)"
+    response:
+      success: true
+      stopped: true
+
+  # ─────────────────────────────
+  # EMERGENCY STOP
+  # ─────────────────────────────
+  rover_emergency_stop:
+    method: POST
+    path: /api/rover/emergency-stop
+    description: "Immediate emergency stop putting rover into EMERGENCY_STOP state"
+    response:
+      success: true
+      emergency_stop: true
+
+  # ─────────────────────────────
+  # EMERGENCY STOP RESET
+  # ─────────────────────────────
+  rover_emergency_stop_reset:
+    method: POST
+    path: /api/rover/emergency-stop/reset
+    description: "Clear emergency stop condition (does not automatically resume movement)"
+    response:
+      success: true
+      emergency_stop: false
+
+  # ─────────────────────────────
+  # MAP
+  # ─────────────────────────────
+  map:
+    method: GET
+    path: /api/map
+    description: "Occupancy grid map data provided by ROS2/Person A"
+    response:
+      resolution_m_per_cell: 0.05
+      width: 0
+      height: 0
+      origin:
+        x: 0.0
+        y: 0.0
+      data: []
+
+  # ─────────────────────────────
+  # NAVIGATION
+  # ─────────────────────────────
+  navigation:
+    method: GET
+    path: /api/navigation
+    description: "Current navigation path and target goal calculated by ROS2/Person A"
+    response:
+      status: "IDLE"
+      goal:
+        x: 0.0
+        y: 0.0
+      path: []
+
+  # ─────────────────────────────
+  # EXPLORATION
+  # ─────────────────────────────
+  exploration:
+    method: GET
+    path: /api/exploration
+    description: "Autonomous exploration progress and frontier metrics calculated by ROS2/Person A"
+    response:
+      status: "IDLE"
+      explored_percent: 0
+      frontier_count: 0
+      current_goal:
+        x: 0.0
+        y: 0.0
+
+  # ─────────────────────────────
+  # LOGS
+  # ─────────────────────────────
+  logs:
+    method: GET
+    path: /api/logs
+    description: "System log entries collection"
+    response:
+      logs: []

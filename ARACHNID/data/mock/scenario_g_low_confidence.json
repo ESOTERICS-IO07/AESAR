@@ -1,0 +1,16 @@
+{
+  "station_id": 8,
+  "view": "upper",
+  "detections": [
+    {
+      "class": "american_bollworm",
+      "category": "pest",
+      "confidence": 0.28,
+      "count": 1
+    }
+  ],
+  "status": "success",
+  "error_message": null,
+  "image_quality": "POOR",
+  "provider": "mock"
+}

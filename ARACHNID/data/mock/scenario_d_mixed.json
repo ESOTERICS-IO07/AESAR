@@ -1,0 +1,27 @@
+{
+  "station_id": 2,
+  "view": "middle",
+  "detections": [
+    {
+      "class": "brown_planthopper",
+      "category": "pest",
+      "confidence": 0.88,
+      "count": 5
+    },
+    {
+      "class": "mirid_bug",
+      "category": "defender",
+      "confidence": 0.85,
+      "count": 3
+    },
+    {
+      "class": "carabid_beetle",
+      "category": "defender",
+      "confidence": 0.90,
+      "count": 1
+    }
+  ],
+  "status": "success",
+  "error_message": null,
+  "provider": "mock"
+}

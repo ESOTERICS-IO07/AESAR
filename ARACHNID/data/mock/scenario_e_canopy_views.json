@@ -1,0 +1,47 @@
+{
+  "lower": {
+    "station_id": 3,
+    "view": "lower",
+    "detections": [
+      {
+        "class": "carabid_beetle",
+        "category": "defender",
+        "confidence": 0.91,
+        "count": 2
+      }
+    ],
+    "status": "success",
+    "error_message": null,
+    "provider": "mock"
+  },
+  "middle": {
+    "station_id": 3,
+    "view": "middle",
+    "detections": [
+      {
+        "class": "brown_planthopper",
+        "category": "pest",
+        "confidence": 0.87,
+        "count": 8
+      }
+    ],
+    "status": "success",
+    "error_message": null,
+    "provider": "mock"
+  },
+  "upper": {
+    "station_id": 3,
+    "view": "upper",
+    "detections": [
+      {
+        "class": "cotton_aphids",
+        "category": "pest",
+        "confidence": 0.90,
+        "count": 4
+      }
+    ],
+    "status": "success",
+    "error_message": null,
+    "provider": "mock"
+  }
+}

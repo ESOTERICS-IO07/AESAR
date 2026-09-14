@@ -1,0 +1,157 @@
+version: "1.0.0"
+
+websocket:
+  path: /ws
+  description: "Real-time bidirectional WebSocket interface between Frontend and Backend"
+
+  base_envelope:
+    fields:
+      type:
+        type: string
+        required: true
+        description: "Event discriminator matching one of the frozen event types"
+      timestamp_ms:
+        type: integer
+        required: true
+        description: "Timestamp in milliseconds"
+      data:
+        type: object
+        required: true
+        description: "Event-specific payload"
+
+  event_types:
+    - rover_status
+    - sensor_telemetry
+    - map_update
+    - navigation_update
+    - exploration_update
+    - battery_update
+    - log_event
+    - safety_event
+
+  events:
+
+    # ─────────────────────────────
+    # SENSOR TELEMETRY EVENT
+    # ─────────────────────────────
+    sensor_telemetry:
+      type: sensor_telemetry
+      description: "Periodic stream of ultrasonic and ToF sensor distance measurements"
+      schema:
+        type: sensor_telemetry
+        timestamp_ms: 0
+        data:
+          us_fc_mm: 1100
+          us_fl_mm: 1200
+          us_fr_mm: 950
+          us_l_mm: 760
+          us_r_mm: 1430
+          tof_front_mm: 880
+
+    # ─────────────────────────────
+    # ROVER STATUS EVENT
+    # ─────────────────────────────
+    rover_status:
+      type: rover_status
+      description: "State changes, connectivity status, active mode, and battery"
+      schema:
+        type: rover_status
+        timestamp_ms: 0
+        data:
+          connected: true
+          state: "AUTONOMOUS"
+          mode: "AUTONOMOUS"
+          battery_percent: 78
+
+    # ─────────────────────────────
+    # MAP UPDATE EVENT
+    # ─────────────────────────────
+    map_update:
+      type: map_update
+      description: "Incremental or full occupancy grid map updates from ROS2"
+      schema:
+        type: map_update
+        timestamp_ms: 0
+        data:
+          resolution_m_per_cell: 0.05
+          width: 0
+          height: 0
+          origin:
+            x: 0.0
+            y: 0.0
+          data: []
+
+    # ─────────────────────────────
+    # NAVIGATION UPDATE EVENT
+    # ─────────────────────────────
+    navigation_update:
+      type: navigation_update
+      description: "Active navigation plan, status, goal, and waypoint path from ROS2"
+      schema:
+        type: navigation_update
+        timestamp_ms: 0
+        data:
+          status: "IDLE"
+          goal:
+            x: 0.0
+            y: 0.0
+          path: []
+
+    # ─────────────────────────────
+    # EXPLORATION UPDATE EVENT
+    # ─────────────────────────────
+    exploration_update:
+      type: exploration_update
+      description: "Frontier exploration progress and active exploration goal from ROS2"
+      schema:
+        type: exploration_update
+        timestamp_ms: 0
+        data:
+          status: "IDLE"
+          explored_percent: 0
+          frontier_count: 0
+          current_goal:
+            x: 0.0
+            y: 0.0
+
+    # ─────────────────────────────
+    # BATTERY UPDATE EVENT
+    # ─────────────────────────────
+    battery_update:
+      type: battery_update
+      description: "Battery state of charge update"
+      schema:
+        type: battery_update
+        timestamp_ms: 0
+        data:
+          battery_percent: 78
+
+    # ─────────────────────────────
+    # LOG EVENT
+    # ─────────────────────────────
+    log_event:
+      type: log_event
+      description: "Real-time log message stream"
+      schema:
+        type: log_event
+        timestamp_ms: 0
+        data:
+          timestamp_ms: 0
+          level: "INFO"
+          message: "System initialized"
+          module: "backend"
+
+    # ─────────────────────────────
+    # SAFETY EVENT
+    # ─────────────────────────────
+    safety_event:
+      type: safety_event
+      description: "Emergency stop, timeout, obstacle warning, or safety trigger notification"
+      schema:
+        type: safety_event
+        timestamp_ms: 0
+        data:
+          event_type: "EMERGENCY_STOP"
+          description: "Emergency stop triggered"
+          source: "MANUAL"
+          state: "EMERGENCY_STOP"

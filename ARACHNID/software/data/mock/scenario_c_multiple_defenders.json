@@ -1,0 +1,27 @@
+{
+  "station_id": 1,
+  "view": "lower",
+  "detections": [
+    {
+      "class": "ladybird_beetle",
+      "category": "defender",
+      "confidence": 0.94,
+      "count": 4
+    },
+    {
+      "class": "lycosa_wolf_spider",
+      "category": "defender",
+      "confidence": 0.89,
+      "count": 2
+    },
+    {
+      "class": "green_lacewing",
+      "category": "defender",
+      "confidence": 0.91,
+      "count": 1
+    }
+  ],
+  "status": "success",
+  "error_message": null,
+  "provider": "mock"
+}

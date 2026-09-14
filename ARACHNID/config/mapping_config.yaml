@@ -1,0 +1,21 @@
+# ARACHNID Occupancy Grid Mapping Configuration - Person A (Robotics & Autonomy)
+# Software Integration Contract v1.0.0
+
+mapping:
+  frame_id: "map"
+  resolution_m_per_cell: 0.05
+  width: 200
+  height: 200
+  origin_x_m: -5.0
+  origin_y_m: -5.0
+  publish_rate_hz: 5.0
+
+grid_values:
+  unknown: -1
+  free: 0
+  occupied: 100
+
+raycasting:
+  algorithm: "Bresenham"
+  min_sensor_range_m: 0.02
+  max_sensor_range_m: 2.50

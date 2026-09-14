@@ -1,0 +1,8 @@
+{
+  "station_id": 10,
+  "view": "middle",
+  "detections": [],
+  "status": "no_detections",
+  "error_message": null,
+  "provider": "mock"
+}

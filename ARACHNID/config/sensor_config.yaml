@@ -1,0 +1,48 @@
+# ARACHNID Sensor Suite Configuration - Person A (Robotics & Autonomy)
+# Software Integration Contract v1.0.0
+
+sensors:
+  ultrasonic:
+    min_range_mm: 20
+    max_range_mm: 3000
+    filter:
+      type: "median"
+      window_size: 5
+    # Mounting positions in robot body frame: [x_m, y_m, yaw_rad]
+    us_fl:
+      x_m: 0.15
+      y_m: 0.08
+      yaw_rad: 0.349066 # +20 deg (counter-clockwise / left)
+    us_fr:
+      x_m: 0.15
+      y_m: -0.08
+      yaw_rad: -0.349066 # -20 deg (clockwise / right)
+    us_l:
+      x_m: 0.0
+      y_m: 0.12
+      yaw_rad: 1.570796 # +90 deg (left)
+    us_r:
+      x_m: 0.0
+      y_m: -0.12
+      yaw_rad: -1.570796 # -90 deg (right)
+
+  tof:
+    min_range_mm: 10
+    max_range_mm: 2000
+    filter:
+      type: "moving_average"
+      window_size: 5
+    tof_front:
+      x_m: 0.16
+      y_m: 0.0
+      yaw_rad: 0.0 # 0 deg (forward)
+
+  imu:
+    accel_lp_alpha: 0.25
+    gyro_lp_alpha: 0.25
+    gravity_mps2: 9.80665
+    rate_hz: 20.0
+
+  ir_ground:
+    enabled: true
+    cliff_threshold_mm: 150

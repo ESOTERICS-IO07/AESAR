@@ -1,0 +1,55 @@
+version: "1.0.0"
+
+velocity_command:
+  description: "Velocity command format transmitted from Frontend to Backend and bridged to ROS2/ESP32"
+  fields:
+    command_id:
+      type: string
+      required: true
+      description: "Unique identifier for the command"
+      example: "unique-id"
+    timestamp_ms:
+      type: integer
+      required: true
+      description: "Timestamp in milliseconds"
+      example: 0
+    linear_mps:
+      type: float
+      required: true
+      unit: "m/s"
+      description: "Linear velocity in meters per second"
+      example: 0.0
+    angular_rads:
+      type: float
+      required: true
+      unit: "rad/s"
+      description: "Angular velocity in radians per second"
+      example: 0.0
+    source:
+      type: string
+      required: true
+      allowed_values:
+        - MANUAL
+        - AUTONOMY
+        - SYSTEM
+      description: "Command origin"
+      example: "MANUAL"
+
+  example:
+    command_id: "unique-id"
+    timestamp_ms: 0
+    linear_mps: 0.0
+    angular_rads: 0.0
+    source: "MANUAL"
+
+safety_limits:
+  command_timeout_ms: TBD
+  max_linear_mps: TBD
+  max_angular_rads: TBD
+
+logical_flow:
+  - Website
+  - Backend
+  - ROS2
+  - ESP32
+  - Motors

@@ -1,0 +1,23 @@
+# ARACHNID Rover Configuration - Person A (Robotics & Autonomy)
+# Software Integration Contract v1.0.0
+
+robot:
+  id: "arachnid_01"
+  model: "differential_drive"
+  wheel_radius_m: 0.05
+  wheel_base_m: 0.28
+  encoder_ticks_per_rev: 360
+  max_payload_kg: 5.0
+  track_width_m: 0.28
+
+serial:
+  drive_port: "COM5"
+  sensor_port: "COM6"
+  baudrate: 115200
+  timeout_s: 0.1
+  mock_mode: false
+
+system:
+  control_loop_hz: 20.0
+  telemetry_rate_hz: 20.0
+  heartbeat_timeout_s: 0.50
